@@ -1,6 +1,9 @@
 import ButtonLogin from "@/components/ButtonLogin";
 
 export default function Home() {
+const name = "Rhea";
+
+
   return (
     <main>
       <h1>Collect customer feedback </h1>
@@ -8,6 +11,9 @@ export default function Home() {
       
 
       <ButtonLogin/>
+
+
+      <p> Hey {name} 💃</p>
     </main>
   );
 }
