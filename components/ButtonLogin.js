@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-const ButtonLogin = () => {
+const ButtonLogin = (props) => {
+console.log(props);
+
+
+
+
+
     return <Link href="/dashboard">ButtonLogin</Link>
 };
 
