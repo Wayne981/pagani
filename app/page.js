@@ -5,6 +5,14 @@ const isLoggedIn = true;
 const name = "Kylie";
 
 
+const greeting1 = "hello" + name;
+// output 1 : "hello kylie"
+
+const greeting2 = `Hello ${name}`;
+console.log(greeting2);
+// Output 2: "Hello Kylie"
+
+
 return (
   <main>
 
@@ -51,7 +59,7 @@ return (
            <h3 className="text-xl font-bold text-gray-900">Basic Plan</h3>
            <p className="text-gray-500 text-sm">For small projects</p>
            <div className="flex items-baseline">
-             <span className="text-4xl font-bold text-gray-900">$19</span>
+             <span className="text-4xl font-bold text-gray-900">₹580</span>
              <span className="text-gray-500 text-sm font-medium ml-1">/month</span>
            </div>
          </div>
@@ -86,7 +94,7 @@ return (
            <h3 className="text-xl font-bold text-gray-900">Pro Plan</h3>
            <p className="text-gray-500 text-sm">For growing businesses</p>
            <div className="flex items-baseline">
-             <span className="text-4xl font-bold text-gray-900">$49</span>
+             <span className="text-4xl font-bold text-gray-900">₹950</span>
              <span className="text-gray-500 text-sm font-medium ml-1">/month</span>
            </div>
          </div>
