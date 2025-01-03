@@ -1,7 +1,7 @@
 import ButtonLogin from "@/components/ButtonLogin";
 
 export default function Home() {
-const isLoggedIn = false; 
+const isLoggedIn = true; 
 
 
   return (
