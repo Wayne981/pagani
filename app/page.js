@@ -31,14 +31,14 @@ return (
 
 
 {/* HERO */}
-<section className="bg-base-100 text-center py-32 px-8 max-w-3xl mx-auto">
+<section className="py-32 px-8 max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-14">
+<Image src = {productDemo} alt="product demo" className="w-96 rounded-xl" />
 
-<Image src = {productDemo} alt="product demo" />
-
-
+<div className="flex flex-col items-start lg:items-start">
      <h1 className="text-4xl font-extrabold mb-6">Collect customer feedback </h1>
      <div className="opacity-90 mb-10"> Create a feedback board in minutes , prioritize features , and build products your customers will love</div>
      <ButtonLogin isLoggedIn={isLoggedIn} name= {name}/>
+     </div>
 </section>
 
 
