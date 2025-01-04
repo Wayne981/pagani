@@ -18,7 +18,7 @@ return (
     <div className="max-w-3xl mx-auto flex justify-between items-center px-8 py-2">
       <div className="font-bold">TheAI</div>
       <div className="space-x-4 max-md:hidden">
-        <a className="link link-hover" href="#pricing">Pricing</a>
+        <a className="link link-hover" href="/#pricing">Pricing</a>
   <a className="link link-hover" href="#faq">FAQ</a>
       </div>
       <div>
@@ -30,6 +30,13 @@ return (
 
 {/* HERO */}
 <section className="bg-base-100 text-center py-32 px-8 max-w-3xl mx-auto">
+
+<img 
+src = "https://codefa.st/assets/productDemo.jpeg"
+alt="product demo"
+/>
+
+
      <h1 className="text-4xl font-extrabold mb-6">Collect customer feedback </h1>
      <div className="opacity-90 mb-10"> Create a feedback board in minutes , prioritize features , and build products your customers will love</div>
      <ButtonLogin isLoggedIn={isLoggedIn} name= {name}/>
