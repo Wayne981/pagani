@@ -3,6 +3,8 @@ import React from "react";
 import ButtonLogin from "@/components/ButtonLogin";
 import { Example } from "@/components/Example";
 import FAQListItem from "@/components/FAQListItem";
+import Image from "next/image";
+import productDemo from "@/app/productDemo.jpeg";
 
 export default function Home() {
 const isLoggedIn = true; 
@@ -31,10 +33,7 @@ return (
 {/* HERO */}
 <section className="bg-base-100 text-center py-32 px-8 max-w-3xl mx-auto">
 
-<img 
-src = "https://codefa.st/assets/productDemo.jpeg"
-alt="product demo"
-/>
+<Image src = {productDemo} alt="product demo" />
 
 
      <h1 className="text-4xl font-extrabold mb-6">Collect customer feedback </h1>
