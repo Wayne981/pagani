@@ -18,8 +18,8 @@ return (
     <div className="max-w-3xl mx-auto flex justify-between items-center px-8 py-2">
       <div className="font-bold">TheAI</div>
       <div className="space-x-4 max-md:hidden">
-        <a className="link link-hover">Pricing</a>
-        <a className="link link-hover">FAQ</a>
+        <a className="link link-hover" href="#pricing">Pricing</a>
+  <a className="link link-hover" href="#faq">FAQ</a>
       </div>
       <div>
         <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
@@ -35,9 +35,9 @@ return (
      <ButtonLogin isLoggedIn={isLoggedIn} name= {name}/>
 </section>
 
+
 {/* PRICING */}
-{/* PRICING */}
-<section className="bg-base-200 py-16">
+<section id="pricing" className="bg-base-200 py-16">
  <div className="max-w-5xl mx-auto px-8">
    <div className="text-center mb-12">
      <p className="text-3xl lg:text-4xl font-extrabold mb-4 text-gray-800">
@@ -131,7 +131,7 @@ return (
 </section>
 
 {/* FAQ */}
-<section className="bg-base-200">
+<section id="faq" className="bg-base-200">
   <div className="py-32 px-8 max-w-3xl mx-auto">
     <p className="text-sm uppercase font-medium text-center text-purple-600">
       FAQ
