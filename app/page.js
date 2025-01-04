@@ -2,6 +2,7 @@ import React from "react";
 
 import ButtonLogin from "@/components/ButtonLogin";
 import { Example } from "@/components/Example";
+import FAQListItem from "@/components/FAQListItem";
 
 export default function Home() {
 const isLoggedIn = true; 
@@ -127,6 +128,37 @@ return (
      </div>
    </div>
  </div>
+</section>
+
+{/* FAQ */}
+<section className="bg-base-200">
+  <div className="py-32 px-8 max-w-3xl mx-auto">
+    <p className="text-sm uppercase font-medium text-center text-purple-600">
+      FAQ
+    </p>
+    <h2 className="text-4xl lg:text-6xl font-bold text-center mt-4 mb-8">
+      Frequently Asked Questions
+    </h2>
+
+    <ul className="max-w-lg mx-auto">
+      {[
+        {
+          question: "What do I get exactly?",
+          answer: "Lorem ipsum"
+        },
+        {
+          question: "Can I get a refund?",
+          answer: "Lorem ipsum"
+        },
+        {
+          question: "I have another question",
+          answer: "Lorem ipsum"
+        }
+      ].map((qa) => (
+        <FAQListItem key={qa.question} qa={qa} />
+      ))}
+    </ul>
+  </div>
 </section>
 
 <Example/>
