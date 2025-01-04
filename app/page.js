@@ -1,16 +1,12 @@
+import React from "react";
+
 import ButtonLogin from "@/components/ButtonLogin";
+import { Example } from "@/components/Example";
 
 export default function Home() {
 const isLoggedIn = true; 
 const name = "Kylie";
 
-
-const greeting1 = "hello" + name;
-// output 1 : "hello kylie"
-
-const greeting2 = `Hello ${name}`;
-console.log(greeting2);
-// Output 2: "Hello Kylie"
 
 
 return (
@@ -125,11 +121,16 @@ return (
          <button className="mt-6 w-full bg-black text-white py-2 px-4 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors">
            Get started
          </button>
+
+         {/* <ButtonLogin isLoggedIn = {isLoggedIn} name={name} extraStyle= "w-full"></ButtonLogin> */}
        </div>
      </div>
    </div>
  </div>
 </section>
+
+<Example/>
+
 </main>
   );
 }
