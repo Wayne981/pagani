@@ -5,11 +5,13 @@ import { Example } from "@/components/Example";
 import FAQListItem from "@/components/FAQListItem";
 import Image from "next/image";
 import productDemo from "@/app/productDemo.jpeg";
+import clientPromise from "@/libs/mongo";
 
 export default function Home() {
 const isLoggedIn = true; 
 const name = "Kylie";
 
+// clientPromise.db.collection("users").find({age:32});
 
 
 return (
