@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import { MongoDBAdapter} from "@auth/mongodb-adapter";
 import clientPromise from "./libs/mongo";
+import Resend from 
 
 
 const config = {
