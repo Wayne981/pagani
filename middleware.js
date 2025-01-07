@@ -1,39 +1,50 @@
 import { NextResponse } from 'next/server';
 
-// Array of allowed IPs - can include multiple addresses
+// Your allowed IPs
 const ALLOWED_IPS = [
-    "150.129.88.165", // Replace with your actual IP
-    // Add more IPs if needed
-    // "ANOTHER_IP"
+    "150.129.88.165" , // Use environment variable
 ];
 
 export function middleware(req) {
-    // Get client IP from various headers
-    const forwardedFor = req.headers.get('x-forwarded-for');
+    // Check if we're in development mode
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    // Allow all access in development mode
+    if (isDevelopment) {
+        return NextResponse.next();
+    }
+
+    // Get all possible IP headers
+    const forwarded = req.headers.get('x-forwarded-for');
     const realIp = req.headers.get('x-real-ip');
+    const cfConnectingIp = req.headers.get('cf-connecting-ip');
+    
+    // Try to get the real client IP from various headers
     const clientIp = 
-        forwardedFor ? forwardedFor.split(',')[0].trim() : 
-        realIp ? realIp : 
+        cfConnectingIp || 
+        (forwarded ? forwarded.split(',')[0].trim() : null) ||
+        realIp ||
         req.ip;
 
-    // Debug logging
     console.log({
         timestamp: new Date().toISOString(),
         path: req.nextUrl.pathname,
-        clientIp: clientIp,
-        forwardedFor: forwardedFor,
-        realIp: realIp
+        clientIp,
+        allowedIps: ALLOWED_IPS,
+        headers: {
+            forwarded,
+            realIp,
+            cfConnectingIp
+        }
     });
 
-    // Check if the IP is allowed
     if (!ALLOWED_IPS.includes(clientIp)) {
-        console.log(`Access denied to IP: ${clientIp} for path: ${req.nextUrl.pathname}`);
-        
         return new NextResponse(
             JSON.stringify({
                 success: false,
-                message: 'Access Denied - IP not authorized'
-            }), 
+                message: 'Access Denied',
+                clientIp // Including this for debugging
+            }),
             {
                 status: 403,
                 headers: {
@@ -43,15 +54,9 @@ export function middleware(req) {
         );
     }
 
-    console.log(`Access granted to IP: ${clientIp} for path: ${req.nextUrl.pathname}`);
     return NextResponse.next();
 }
 
 export const config = {
-    matcher: '/:path*'  // Matches all paths
+    matcher: '/((?!api/allow-access|_next/static|_next/image|favicon.ico).*)',
 };
-
-
-
-
-
