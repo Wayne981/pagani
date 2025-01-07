@@ -42,7 +42,7 @@ export function middleware(req) {
         return new NextResponse(
             JSON.stringify({
                 success: false,
-                message: 'Access Denied',
+                message: 'Access Denied for u Frog Navaneeth',
                 clientIp // Including this for debugging
             }),
             {
