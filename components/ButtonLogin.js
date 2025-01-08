@@ -1,24 +1,18 @@
 import Link from "next/link";
 
-const ButtonLogin = (props) => {
- 
-
-
-
-
-if (props.isLoggedIn){
-    return <Link href="/dashboard" className="btn btn-primary">Welcome back {props.name}</Link>
-} else {
+const ButtonLogin = ({ session, extraStyle }) => {
+    // if session cookie is present , display welcome back name in button , or else show login
+    if (session) {
+        return (
+            <Link 
+                href="/dashboard"
+                className={`btn btn-primary ${extraStyle ? extraStyle : ""}`}
+            >
+                Welcome back {session.user.name || "friend"}
+            </Link>
+        );
+    } 
     return <button>Login</button>;
-
-// 1. Create a /login page
-
-// 2. Create a email/password form
-
-// 3. Make a POST request to /api/login
-
-
-}
 };
 
 export default ButtonLogin;

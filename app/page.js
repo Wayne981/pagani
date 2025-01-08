@@ -1,17 +1,15 @@
 import React from "react";
-
 import ButtonLogin from "@/components/ButtonLogin";
 import { Example } from "@/components/Example";
 import FAQListItem from "@/components/FAQListItem";
 import Image from "next/image";
 import productDemo from "@/app/productDemo.jpeg";
-// import clientPromise from "@/libs/mongo";
+import { auth } from "@/auth";
 
-export default function Home() {
-const isLoggedIn = true; 
-const name = "Kylie";
+export default async function Home() {
 
-// clientPromise.db.collection("users").find({age:32});
+  const session = await auth();
+  // console.log(session);
 
 
 return (
@@ -26,7 +24,7 @@ return (
   <a className="link link-hover" href="#faq">FAQ</a>
       </div>
       <div>
-        <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
+        <ButtonLogin session= {session} />
       </div>
     </div>
   </section>
@@ -39,7 +37,7 @@ return (
 <div className="flex flex-col items-start lg:items-start">
      <h1 className="text-4xl font-extrabold mb-6">Collect customer feedback </h1>
      <div className="opacity-90 mb-10"> Create a feedback board in minutes , prioritize features , and build products your customers will love</div>
-     <ButtonLogin isLoggedIn={isLoggedIn} name= {name}/>
+     <ButtonLogin session= {session}/>
      </div>
 </section>
 
@@ -131,7 +129,7 @@ return (
            Get started
          </button>
 
-         {/* <ButtonLogin isLoggedIn = {isLoggedIn} name={name} extraStyle= "w-full"></ButtonLogin> */}
+     
        </div>
      </div>
    </div>
