@@ -14,6 +14,5 @@ const boardSchema = new mongoose.Schema({
     }
 });
 
-const Board = mongoose.model("Board", boardSchema);
+export default mongoose.models.Board || mongoose.model("Board", boardSchema);
 
-export default Board;
