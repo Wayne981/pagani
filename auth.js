@@ -11,7 +11,7 @@ const config = {
     providers: [
         Resend({
             apiKey : process.env.RESEND_KEY,
-            from: " noreply@resend.navaneethcaterers.com"
+            from: "noreply@resend.navaneethcaterers.com",
          
         }),
         Google({
