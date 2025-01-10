@@ -3,7 +3,7 @@ const FormNewBoard = () => {
         // 1. TITLE
         // 2. FORM
         // 3. BUTTON
-        <div className="bg-base-100 p-8 rounded-3xl space-y-8">
+        <form className="bg-base-100 p-8 rounded-3xl space-y-8">
             <p className="font-bold text-lg">Create a new feedback board</p>
             <label className="form-control w-full">
                 <div className="label-text">Board name</div>
@@ -14,7 +14,7 @@ const FormNewBoard = () => {
                 />
             </label>
             <button className="btn btn-primary w-full">Create board</button>
-        </div>
+        </form>
     );
 };
 
