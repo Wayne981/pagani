@@ -8,8 +8,10 @@ const FormNewBoard = () => {
             <label className="form-control w-full">
                 <div className="label-text">Board name</div>
                 <input 
+                required // text has to be selected 
+                // types such as date ,numbers and file can be used
                     type="text"
-                    placeholder="Type here"
+                    placeholder="Future whale 🐋"
                     className="input input-bordered w-full"
                 />
             </label>
