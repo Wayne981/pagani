@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const FormNewBoard = () => {
   const router = useRouter();
@@ -22,12 +23,19 @@ const FormNewBoard = () => {
 
 setName(""); // removes the current input , such that we can create another board
 
+toast.success("Board created");
 
 router.refresh();
 
       //2. Redirect to the dedicated board page
     } catch (error) {
       // . display the error message
+
+     
+
+      const errorMessage = error.message || "Something went wrong";
+
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false); // the loading after all the checks are done in db , is stopped
     }
