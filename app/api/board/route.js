@@ -12,7 +12,7 @@ export async function POST(req) {
     const body =  await req.json();
     
 
-
+// we got the name here , next is verfication
 if(!body.name) {
     return NextResponse.json(
         { error: "Board name is required" },
@@ -20,8 +20,10 @@ if(!body.name) {
     );
 }
 
+// as auth is already imported
         const session = await auth();
 
+     // now user is authenticated   
         if(!session) {
            return NextResponse.json(
             {error : "Not authorized"},
@@ -30,9 +32,11 @@ if(!body.name) {
            );
         }
 
-           
+           // first it should be connected , wait for that and after that we can do the operations
            await connectMongo(); // from mongoose file , that's why it is imported
 
+
+           // getting the user
            const user = await User.findById(session.user.id);
 
 

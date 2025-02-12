@@ -1,23 +1,68 @@
+"use client";
+import { useState } from "react";
+
 const FormNewBoard = () => {
-    return (
-        // 1. TITLE
-        // 2. FORM
-        // 3. BUTTON
-        <form className="bg-base-100 p-8 rounded-3xl space-y-8">
-            <p className="font-bold text-lg">Create a new feedback board</p>
-            <label className="form-control w-full">
-                <div className="label-text">Board name</div>
-                <input 
-                required // text has to be selected 
-                // types such as date ,numbers and file can be used
-                    type="text"
-                    placeholder="Future whale 🐋"
-                    className="input input-bordered w-full"
-                />
-            </label>
-            <button className="btn btn-primary w-full">Create board</button>
-        </form>
-    );
+  const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if(isLoading) return; 
+
+    setIsLoading(true);
+    
+    try {
+      await fetch("/api/board", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+        }),
+        headers:{
+          "Content-Type": "application/json",
+        },
+      });
+      //2. Redirect to the dedicated board page
+    } catch (error) {
+      // . display the error message
+    } finally {
+      setIsLoading(false); // the loading after all the checks are done in db , is stopped
+    }
+  };
+
+
+  return (
+    <div className="bg-base-100 p-8 rounded-3xl space-y-8">
+      <p className="font-bold text-lg">Create a new feedback board</p>
+      
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">Board name</span>
+          </div>
+          <input
+            required
+            type="text"
+            placeholder="Future Whale 🐋"
+            className="input input-bordered w-full"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
+
+        <div className="mt-6">
+          <button className="btn btn-primary w-full" type="submit" disabled={isLoading}>
+            {isLoading && (
+              <span>
+                <span className="loading loading-spinner loading-md"></span>
+              </span>
+            )}
+            Create Board
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default FormNewBoard;

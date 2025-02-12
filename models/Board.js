@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const boardSchema = new mongoose.Schema({
     // id for it is given by default only . So , no need to create
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId, // special type from mongoose
         required: true,
         ref: "User",
     },
