@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 const FormNewBoard = () => {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,6 +22,8 @@ const FormNewBoard = () => {
 
 setName(""); // removes the current input , such that we can create another board
 
+
+router.refresh();
 
       //2. Redirect to the dedicated board page
     } catch (error) {
