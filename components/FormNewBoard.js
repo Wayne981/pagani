@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import axios from "axios";
 
 const FormNewBoard = () => {
   const [name, setName] = useState("");
@@ -13,20 +14,11 @@ const FormNewBoard = () => {
     setIsLoading(true);
     
     try {
-      const response = await fetch("/api/board", {
-        method: "POST",
-        body: JSON.stringify({
-          name,
-        }),
-        headers:{
-          "Content-Type": "application/json",
-        },
-      });
-const data = await response.json(); // gives all the data about the document that is sent
+      const data = await axios.post("/api/board", {name});
+
+        console.log(data);
 
 setName(""); // removes the current input , such that we can create another board
-
-console.log(data);
 
 
       //2. Redirect to the dedicated board page
