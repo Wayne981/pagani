@@ -13,7 +13,7 @@ const FormNewBoard = () => {
     setIsLoading(true);
     
     try {
-      await fetch("/api/board", {
+      const response = await fetch("/api/board", {
         method: "POST",
         body: JSON.stringify({
           name,
@@ -22,6 +22,13 @@ const FormNewBoard = () => {
           "Content-Type": "application/json",
         },
       });
+const data = await response.json(); // gives all the data about the document that is sent
+
+setName(""); // removes the current input , such that we can create another board
+
+console.log(data);
+
+
       //2. Redirect to the dedicated board page
     } catch (error) {
       // . display the error message
