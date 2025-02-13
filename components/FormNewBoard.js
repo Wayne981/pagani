@@ -33,7 +33,8 @@ router.refresh();
 
      
 
-      const errorMessage = error.message || "Something went wrong";
+      const errorMessage = error.response?.data?.error || error.message || "Something went wrong";
+      // error from the API endpoint
 
       toast.error(errorMessage);
     } finally {
