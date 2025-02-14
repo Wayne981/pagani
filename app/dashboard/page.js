@@ -42,10 +42,10 @@ export default async function  Dashboard() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {user.boards.map((board) => (
                                 <Link href={`/dashboard/b/${board._id}`} key={board._id} className="block">
-                                    <div className="bg-base-100 p-4 rounded-lg shadow hover:shadow-md transition-shadow">
-                                        <h3 className="font-semibold text-lg">{board.name}</h3>
-                                    </div>
-                                </Link>
+    <div className="bg-base-100 p-4 rounded-lg shadow hover:shadow-xl transition-all duration-300 hover:bg-base-200 hover:-translate-y-1 border border-transparent hover:border-primary/20">
+        <h3 className="font-semibold text-lg">{board.name}</h3>
+    </div>
+</Link>
                             ))}
                         </div>
                     ) : (
