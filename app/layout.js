@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Toaster} from "react-hot-toast";
+// import { Toaster} from "react-hot-toast";
+import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,9 @@ export default function RootLayout({ children }) {
     
     <html lang="en" data-theme="cupcake" className="scroll-smooth">
       <body className={inter.className}>
-      <div>
+      
         <Toaster/>
-      </div>
+     
       
       {children}</body>
     </html>
