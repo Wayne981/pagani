@@ -11,13 +11,13 @@ const userSchema = new mongoose.Schema({
         lowercase: true, 
 
     }, 
-    image: {
+    image: {            // profile picture
         type: String,
     },
     boards: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Board",
+            ref: "Board", // refering to some other models
         },
     ],
 });
