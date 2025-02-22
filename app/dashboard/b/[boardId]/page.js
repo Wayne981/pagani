@@ -15,6 +15,7 @@ import { ChevronLeft } from "lucide-react";
 import connectMongo from "@/libs/mongoose";
 import Board from "@/models/Board";
 import { auth } from "@/auth";
+import CardBoardLink from '@/components/CardBoardLink';
 
 const getBoard = async (boardId) => {
     const session = await auth();
@@ -49,12 +50,19 @@ export default async function FeedbackBoard({ params }) {
                     </Link>
                 </div>
             </header>
+
+            
             
             <div className="max-w-5xl mx-auto px-4 py-8">
                 <h1 className="text-3xl font-bold text-gray-900">
                     {board.name}
                 </h1>
+
+{/* since the name depends on board id it is mentioned here */}
+                <CardBoardLink boardId={board._id}/> 
             </div>
+
+            
         </main>
     );
 }
