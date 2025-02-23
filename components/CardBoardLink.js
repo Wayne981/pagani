@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { toast } from 'sonner';
-import { ClipboardCopy } from 'lucide-react';
+
 
 const CardBoardLink = ({ boardId }) => {
   const boardLink = `${
