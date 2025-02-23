@@ -14,6 +14,17 @@ const userSchema = new mongoose.Schema({
     image: {            // profile picture
         type: String,
     },
+    hasAccess:{
+        type:Boolean , 
+        default: false, // assuming they are not subscribed
+    },
+
+    customerId : {
+        type:String, // for lemonsqueezy
+
+    },
+    // planId : if the user has multiple plans
+
     boards: [
         {
             type: mongoose.Schema.Types.ObjectId,
