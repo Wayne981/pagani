@@ -57,8 +57,11 @@ if(!body.name) {
 
     }
 
+
+
     export async function DELETE(req) {
         try {
+            
             // DELETE http://localhost:3000/api/board?boardId=o6i4d3mfoi3
     
             const searchParams = req.nextUrl.searchParams; // we will get the query parameters of the link
