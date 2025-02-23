@@ -16,6 +16,7 @@ import connectMongo from "@/libs/mongoose";
 import Board from "@/models/Board";
 import { auth } from "@/auth";
 import CardBoardLink from '@/components/CardBoardLink';
+import ButtonDeleteBoard from '@/components/ButtonDeleteBoard';
 
 const getBoard = async (boardId) => {
     const session = await auth();
@@ -59,7 +60,11 @@ export default async function FeedbackBoard({ params }) {
                 </h1>
 
 {/* since the name depends on board id it is mentioned here */}
+
                 <CardBoardLink boardId={board._id}/> 
+
+                {/* Button id is mentioned here , since we have to know which board to deleted */}
+                <ButtonDeleteBoard boardId={board._id} />
             </div>
 
             
