@@ -53,7 +53,7 @@ export async function POST(req) {
 
 
 
-// suc Url - this is what we need to checkout
+// suUrl - this is what we need to checkout
 
 
 
