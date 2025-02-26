@@ -5,6 +5,7 @@ import { auth } from "@/auth"; // to get the user session
 import connectMongo from "@/libs/mongoose"; //
 import User from "@/models/User";
 import "@/models/Board"; // Ensure Board model is registered
+import ButtonCheckout from "@/components/ButtonCheckout";
 
 async function getUser() {
     // to get all the boards created by a particular user
@@ -22,7 +23,9 @@ export default async function Dashboard() {
             {/* Header */}
             <header className="bg-base-100 shadow-md">
                 <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+                
                     <h1 className="text-xl font-bold text-primary">Dashboard</h1>
+                    <ButtonCheckout />
                     <ButtonLogout />
                 </div>
             </header>
