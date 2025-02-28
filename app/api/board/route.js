@@ -39,6 +39,14 @@ if(!body.name) {
            // getting the user
            const user = await User.findById(session.user.id);
 
+if(!user.hasAccess) {
+    return NextResponse.json(
+        {error : "Please subscribe first"},
+        {status:403}
+    )
+} 
+
+
 
 
            const board = await Board.create({  // for board creation 
@@ -85,12 +93,22 @@ if(!body.name) {
                 );
             }
     
+    
+            const user = await User.findById(session?.user?.id);
+
+            if(!user.hasAccess) {
+                return NextResponse.json(
+                    {error : "Please subscribe first"},
+                    {status:403}
+                )
+            } 
+// if user has not access , next things are not given access
+
             await Board.deleteOne({
                 _id: boardId,
                 userId: session?.user?.id,
             });
-    
-            const user = await User.findById(session?.user?.id);
+
             user.boards = user.boards.filter((id) => id.toString() !== boardId);
             await user.save();
     
