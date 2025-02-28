@@ -5,6 +5,8 @@ import FAQListItem from "@/components/FAQListItem";
 import Image from "next/image";
 import productDemo from "@/app/productDemo.jpeg";
 import { auth } from "@/auth";
+import ButtonPortal from "@/components/ButtonPortal";
+import ButtonLogout from "@/components/ButtonLogout";
 
 export default async function Home() {
 
@@ -20,9 +22,12 @@ return (
     <div className="max-w-3xl mx-auto flex justify-between items-center px-8 py-2">
       <div className="font-bold">TheAI</div>
       <div className="space-x-4 max-md:hidden">
-        <a className="link link-hover" href="#pricing">Pricing</a>
+  <a className="link link-hover" href="#pricing">Pricing</a>
   <a className="link link-hover" href="#faq">FAQ</a>
-      </div>
+  {session?.user?.hasAccess ? <ButtonPortal /> : <ButtonCheckout />}
+  <ButtonLogout />
+</div>
+
       <div>
         <ButtonLogin session= {session} />
       </div>
