@@ -25,7 +25,8 @@ export default async function Dashboard() {
                 <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
                 
                     <h1 className="text-xl font-bold text-primary">Dashboard</h1>
-                    <ButtonCheckout />
+                   
+{  !user.hasAccess && <ButtonCheckout /> }
                     <ButtonLogout />
                 </div>
             </header>
