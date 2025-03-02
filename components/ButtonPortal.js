@@ -14,17 +14,11 @@ const ButtonPortal = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("/api/billing/create-portal", {
-        returnUrl: window.location.href
-      });
+      const response = await axios.post("/api/billing/create-portal");
 
       const portalUrl = response.data?.url;
 
-      if (portalUrl) {
-        window.location.href = portalUrl;
-      } else {
-        toast.error("No portal URL received");
-      }
+      window.open(portalUrl, "_blank");
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || error.message || "Something went wrong";

@@ -7,6 +7,7 @@ import productDemo from "@/app/productDemo.jpeg";
 import { auth } from "@/auth";
 import ButtonPortal from "@/components/ButtonPortal";
 import ButtonLogout from "@/components/ButtonLogout";
+import ButtonCheckout from "@/components/ButtonCheckout";
 
 export default async function Home() {
 
