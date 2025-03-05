@@ -9,28 +9,31 @@ const userSchema = new mongoose.Schema({
         type: String,
         trim: true,
         lowercase: true, 
-
     }, 
-    image: {            // profile picture
+    // profile picture
+    image: {            
         type: String,
     },
+    // assuming they are not subscribed
     hasAccess:{
         type:Boolean , 
-        default: false, // assuming they are not subscribed
+        default: false, 
     },
 
+    // for lemonsqueezy
     customerId : {
-        type:String, // for lemonsqueezy
-
+        type:String,
     },
     // planId : if the user has multiple plans
 
+    // refering to some other models
     boards: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Board", // refering to some other models
+            ref: "Board", 
         },
     ],
 });
 
+// check is board exist , or else , create a new model for the board
 export default mongoose.models.User || mongoose.model("User", userSchema);

@@ -8,6 +8,7 @@ export async function POST(req) {
     try {
         const body = await req.json();
 
+        // suUrl - this is what we need to checkout
         if (!body.successUrl) {
             return NextResponse.json(
                 { error: "Url is required" },
@@ -19,6 +20,7 @@ export async function POST(req) {
 
         await connectMongo();
 
+        // LS knows it is coming from us , as it has API key
         lemonSqueezySetup({
             apiKey: process.env.LS_API_KEY,
         });
@@ -28,6 +30,7 @@ export async function POST(req) {
             return NextResponse.json({ error: "User not found" }, { status: 404 });
         }
 
+        // userId to string as it is the same
         const checkoutLS = await createCheckout(
             process.env.LS_STORE_ID,
             process.env.LS_VARIANT_ID,
@@ -44,25 +47,10 @@ export async function POST(req) {
             }
         );
 
+        // finally we are going to give the url , where customers can put their credit card
         return NextResponse.json({ url: checkoutLS.data.data.attributes.url });
 
     } catch (e) {
         return NextResponse.json({ error: e?.message }, { status: 500 });
     }
 }
-
-
-
-// suUrl - this is what we need to checkout
-
-
-
-// LS knows it is coming from us , as it has API key
-
-// userId to string as it is the same
-
-
-
-
-
-// finally we are going to give the url , where customers can put their credit cad
