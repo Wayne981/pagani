@@ -19,9 +19,10 @@ const FormAddPost = ({boardId}) => { //
     
     // API starts here
     try {
-      const response = await axios.post(`/api/posts?boardId=${boardId}`, { title, description });
+      console.log("Submitting to /api/post with boardId:", boardId);
+      const response = await axios.post(`/api/post?boardId=${boardId}`, { title, description });
 
-      console.log(response.data);
+      console.log("Response:", response.data);
 
       setTitle(""); // removes the current input , such that we can create another board
       setDescription("");
@@ -33,6 +34,7 @@ const FormAddPost = ({boardId}) => { //
       //2. Redirect to the dedicated board page
     } catch (error) {
       // . display the error message
+      console.error("Error details:", error);
       const errorMessage = error.response?.data?.error || error.message || "Something went wrong";
       // error from the API endpoint
  
