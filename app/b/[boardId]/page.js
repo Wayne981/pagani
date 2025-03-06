@@ -25,9 +25,9 @@ const { boardId } = params;
 
 const board = await getBoard(boardId);
 
-return <main>{board.name} (public)
+return <main className="min-h-screen bg-base-200">{board.name} (public)
 
-<FormAddPost />
+<FormAddPost  boardId ={boardId} />
 </main>; // to know we are looking at a public page
 
 }
