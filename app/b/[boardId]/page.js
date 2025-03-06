@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import connectMongo from "@/libs/mongoose";
 import Board from "@/models/Board";
+import FormAddPost from "@/components/FormAddPost";
 
 const getBoard = async (boardId) => {
 
@@ -24,7 +25,10 @@ const { boardId } = params;
 
 const board = await getBoard(boardId);
 
-return <main>{board.name} (public)</main>; // to know we are looking at a public page
+return <main>{board.name} (public)
+
+<FormAddPost />
+</main>; // to know we are looking at a public page
 
 }
 
