@@ -8,13 +8,13 @@ const postSchema = new mongoose.Schema({
         required: true,
         trim: true,
         // Max length should be 100 characters
-        maxlength:100,
+        maxlength: 100,
     },
     description: {
         type: String,
         required: true,
         trim: true,
-        maxlength:1000,
+        maxlength: 1000,
     },
     boardId: {
         type: mongoose.Schema.Types.ObjectId, 
@@ -24,8 +24,13 @@ const postSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User", // reference to the User model
-
     },
+    votesCounter: {
+        type: Number,
+        default: 0,
+    },
+}, {
+    timestamps: true,
 });
 
 // if there is already a existing connection to the database keep it , or else change it to form a new connection
