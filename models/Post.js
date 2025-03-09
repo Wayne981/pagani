@@ -25,6 +25,7 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User", // reference to the User model
     },
+    // Here 29 to 32
     votesCounter: {
         type: Number,
         default: 0,
